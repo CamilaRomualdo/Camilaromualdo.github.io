@@ -72,7 +72,7 @@ body {
 .formatting a {
     text-decoration: none;
     font-weight: 700;
-    color: inherit;
+    color: slategray;
 }
 
 .formatting a:hover {
@@ -438,6 +438,7 @@ section article.block:last-child {
 
 section.home .skills {
     display: inline-block;
+    font-size: 55px;
 }
 
 section.home .skills .skill {
@@ -458,7 +459,7 @@ section.home .skills .skill font.deleted {
 
 section.home .skills .skill:after {
     display: inline-block;
-    color: #f5a623;
+    color: #f5f3ef;
     content: "|";
     -webkit-animation: cursor 1s infinite linear;
     animation: cursor 1s infinite linear;
@@ -542,20 +543,17 @@ section.experience article.formatting a.site:after {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 2px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #383d4b;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #737a8b;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #737a8b;
 }

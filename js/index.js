@@ -1,11 +1,8 @@
-(function () {
-
-  let Navigation, Skills;
-
-  window.Navigation = new (Navigation = function () {
+(function() {
+    window.Navigation = new (Navigation = function() {
         this.sections = $('main section');
         this.active = this.sections.first();
-        $('a[href*="#"]').on('click', function () {
+        $('a[href*="#"]').on('click', function() {
           let id, target;
           id = `#${(this.href.split('#')[1])}`;
             target = $(id);
@@ -15,9 +12,10 @@
             }
         });
         $('main').on('scroll', (e) => {
-          let height, i, id, j, len, main, mainHeight, offsetMiddleBottom, offsetMiddleTop, offsetTop, ref, results,
-              scrollTop, section;
-          main = $(e.target);
+            let height, i, id, j, len, main, mainHeight, 
+                offsetMiddleBottom, offsetMiddleTop, offsetTop, 
+                ref, results, scrollTop, section;
+            main = $(e.target);
             mainHeight = main.height();
             scrollTop = main.scrollTop();
             offsetTop = 0;
@@ -36,7 +34,11 @@
                     if (!this.active.is(section)) {
                         this.active = section;
                         id = this.active.attr('id');
-                        $(`nav .menu a[href*="#${id}"]`).closest('li').addClass('active').siblings('.active').removeClass('active');
+                        $(`nav .menu a[href*="#${id}"]`)
+                            .closest('li')
+                            .addClass('active')
+                            .siblings('.active')
+                            .removeClass('active');
                     }
                     break;
                 } else {
@@ -47,10 +49,9 @@
         });
         return this;
     })();
-
-    window.Skills = new (Skills = function () {
-      let deleteSpeed, humanDelay, typeSpeed;
-      humanDelay = function (init) {
+    window.Skills = new (Skills = function() {
+        let deleteSpeed, humanDelay, typeSpeed;
+        humanDelay = function (init) {
             return (init || 150) + ((Math.random() * 100) - 50);
         };
         typeSpeed = 100;
@@ -58,9 +59,9 @@
         this.list = $('.skills');
         this.skills = this.list.find('.skill');
         this.active = this.skills.filter('.active');
-        this.skills.each(function () {
-          let letters, skill;
-          skill = $(this);
+        this.skills.each(function() {
+            let letters, skill;
+            skill = $(this);
             letters = skill.text().trim().split('');
             skill.html(`<font>${letters.join('</font><font>')}</font>`);
             if (!skill.hasClass('active')) {
@@ -68,8 +69,8 @@
             }
         });
         this.animate = (type) => {
-          let current, input, length, letters, reduce;
-          type = type || 'in';
+            let current, input, length, letters, reduce;
+            type = type || 'in';
             letters = this.active.find('font');
             length = letters.length;
             current = type === 'in' ? 0 : length - 1;
@@ -87,8 +88,8 @@
                 }
             };
             reduce = () => {
-              let next;
-              if (current >= 0) {
+                let next;
+                if (current >= 0) {
                     $(letters[current]).addClass('deleted');
                     this.list.addClass('typing');
                     current--;
@@ -118,5 +119,4 @@
         }, humanDelay(3000));
         return this;
     })();
-
 }).call(this);
